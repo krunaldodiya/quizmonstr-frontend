@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import UserType from "../components/UserType";
+import ManageProfile from "../components/ManageProfile";
 import { createUserProfile } from "../store/actions";
 
 const mapStateToProps = state => ({
@@ -19,4 +19,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(UserType);
+)(ManageProfile);

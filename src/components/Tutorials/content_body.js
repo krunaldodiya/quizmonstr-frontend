@@ -1,15 +1,12 @@
-import LottieView from "lottie-react-native";
 import { Text, View } from "native-base";
 import React from "react";
 import theme from "../../libs/theme";
-
-const animation = require("../../../assets/js/graduating_engineer.json");
 
 const ContentBody = props => {
   return (
     <View style={{ flex: 1, backgroundColor: 'pink' }}>
       <View style={{ flex: 5 }}>
-        <LottieView source={animation} autoPlay style={{ top: 0 }} />
+        <Text>hello</Text>
       </View>
 
       <View style={{ flex: 3 }}>

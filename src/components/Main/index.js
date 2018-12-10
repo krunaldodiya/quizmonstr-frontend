@@ -8,7 +8,7 @@ import NewsDetailScreen from "../../containers/NewsDetailScreen";
 import RequestOtpScreen from "../../containers/RequestOtpScreen";
 import TabsScreen from "../../containers/TabsScreen";
 import TutorialsScreen from "../../containers/TutorialsScreen";
-import UserTypeScreen from "../../containers/UserTypeScreen";
+import ManageProfileScreen from "../../containers/ManageProfileScreen";
 import VerifyOtpScreen from "../../containers/VerifyOtpScreen";
 
 const getAppNavigator = auth => {
@@ -20,7 +20,7 @@ const getAppNavigator = auth => {
       TabsScreen: { screen: TabsScreen },
       RequestOtpScreen: { screen: RequestOtpScreen },
       VerifyOtpScreen: { screen: VerifyOtpScreen },
-      UserTypeScreen: { screen: UserTypeScreen },
+      ManageProfileScreen: { screen: ManageProfileScreen },
       NewsDetailScreen: { screen: NewsDetailScreen },
       AddMoneyScreen: { screen: AddMoneyScreen },
       TutorialsScreen: { screen: TutorialsScreen }
@@ -38,7 +38,7 @@ const getInitialScreen = auth => {
   const { authUser } = auth;
 
   if (authUser) {
-    return authUser.profile_updated ? "TabsScreen" : "UserTypeScreen";
+    return authUser.profile_updated ? "TabsScreen" : "ManageProfileScreen";
   }
 
   return "GetStartedScreen";
@@ -59,8 +59,8 @@ export default class Main extends React.Component {
     const AppNavigator = getAppNavigator(auth);
     const AppContainer = createAppContainer(AppNavigator);
 
-    const noConnection = connection && connection.type !== "none";
-    const hasConnection = connection && connection.type === "none";
+    const noConnection = connection && connection.type === "none";
+    const hasConnection = connection && connection.type !== "none";
 
     return (
       <View style={{ flex: 1 }}>
