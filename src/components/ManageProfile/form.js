@@ -86,21 +86,6 @@ class UserTypeForm extends React.Component {
           </Item>
 
           <Item style={styles.inputWrapper}>
-            <Input
-              placeholder={
-                errors && errors.errors.email
-                  ? errors.errors.email[0]
-                  : "Email Address"
-              }
-              placeholderTextColor={errors ? "#e74c3c" : "#000"}
-              autoCorrect={false}
-              value={authUser.email}
-              onChangeText={email => this.updateUserData("email", email)}
-              style={styles.input(true)}
-            />
-          </Item>
-
-          <Item style={styles.inputWrapper}>
             <Location
               {...this.props}
               cities={cities}
@@ -119,15 +104,6 @@ class UserTypeForm extends React.Component {
               options={["Male", "Female"]}
               selected={authUser.gender}
               onChange={gender => this.updateUserData("gender", gender)}
-            />
-          </Item>
-
-          <Item style={styles.inputWrapper}>
-            <Switch
-              {...this.props}
-              options={["Trader", "Provider"]}
-              selected={authUser.type}
-              onChange={type => this.updateUserData("type", type)}
             />
           </Item>
 
