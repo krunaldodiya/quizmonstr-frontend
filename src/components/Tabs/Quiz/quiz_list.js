@@ -1,6 +1,10 @@
 import React from "react";
-import { FlatList, Image, Text, TouchableOpacity, View } from "react-native";
+import { FlatList, Text, TouchableOpacity, View } from "react-native";
 import styles from "./styles";
+
+getPrize = item => {
+  return item.entry_fee * item.total_participants * 0.8;
+};
 
 renderItem = (data, navigation) => {
   const { item } = data;
@@ -11,22 +15,31 @@ renderItem = (data, navigation) => {
     >
       <View style={styles.newsWrapper}>
         <View style={styles.newsImageWrapper}>
-          <Image
-            source={{ uri: "https://cdn.iconscout.com/icon/premium/png-256-thumb/puzzle-88-429750.png" }}
-            style={styles.newsImage}
-            resizeMode="cover"
-          />
+          <Text style={{ textAlign: "center", margin: 2 }}>PRIZE</Text>
+
+          <Text style={{ textAlign: "center", margin: 2 }}>
+            {"\u20B9"} {this.getPrize(item)}
+          </Text>
         </View>
-        <View style={{ flex: 1 }}>
+
+        <View style={{ flex: 1, marginLeft: 5, marginTop: 5 }}>
           <Text numberOfLines={1} style={styles.newsTitle}>
             {item.category.name}
           </Text>
 
-          <Text numberOfLines={2} style={styles.newsDescription}>
-            {item.host.name}
-          </Text>
+          <View style={{ flexDirection: "row", marginBottom: 5 }}>
+            <Text style={styles.newsDescription}>Host: {item.host.name}</Text>
+          </View>
 
-          <Text style={styles.newsDate}>{item.published_at}</Text>
+          <View style={{ flexDirection: "row" }}>
+            <Text style={styles.newsDate}>
+              Entry Fee: {"\u20B9"} {item.entry_fee}
+            </Text>
+          </View>
+        </View>
+
+        <View style={{ padding: 5, width: 60, justifyContent: "center" }}>
+          <Text style={styles.newsDate}>{item.time_remained}</Text>
         </View>
       </View>
     </TouchableOpacity>

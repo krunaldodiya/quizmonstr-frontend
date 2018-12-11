@@ -10,13 +10,15 @@ export default StyleSheet.create({
     backgroundColor: "white",
     borderBottomWidth: 1,
     borderBottomColor: "#ccc",
-    flexDirection: "row"
+    flexDirection: "row",
   },
 
   newsImageWrapper: {
-    marginLeft: 5,
-    marginRight: 10,
-    justifyContent: "center"
+    margin: 5,
+    padding: 10,
+    justifyContent: "center",
+    borderWidth: 1,
+    borderColor: 'gray'
   },
 
   newsImage: {
@@ -25,20 +27,17 @@ export default StyleSheet.create({
   },
 
   newsTitle: {
-    margin: 5,
     fontFamily: theme.fonts.TitilliumWebSemiBold,
-    fontSize: 18
+    fontSize: 16
   },
 
   newsDescription: {
-    margin: 5,
     fontFamily: theme.fonts.TitilliumWebRegular,
     fontSize: 14
   },
 
   newsDate: {
-    margin: 5,
-    fontFamily: theme.fonts.TitilliumWebLight,
+    fontFamily: theme.fonts.TitilliumWebSemiBold,
     fontSize: 12
   }
 });
