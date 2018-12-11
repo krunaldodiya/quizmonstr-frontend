@@ -1,24 +1,22 @@
 import React from "react";
 import SideDrawer from "../../shared/SideDrawer";
-import BottomActionMenu from "./bottom_action_menu";
-import GridMenu from "./grid_menu";
-import NewsSlider from "./news";
+import { Text, View } from "native-base";
 
 class Home extends React.Component {
   componentDidMount() {
-    const { news, loadNews } = this.props;
+    const { quiz, loadQuiz } = this.props;
 
-    if (!news.loading && !news.news.length) {
-      return loadNews();
+    if (!quiz.loading && !quiz.data.length) {
+      return loadQuiz();
     }
   }
 
   render() {
     return (
       <SideDrawer {...this.props}>
-        <NewsSlider {...this.props} />
-        <GridMenu {...this.props} />
-        <BottomActionMenu {...this.props} />
+        <View style={{ flex: 1, padding: 20 }}>
+          <Text>My Quiz</Text>
+        </View>
       </SideDrawer>
     );
   }

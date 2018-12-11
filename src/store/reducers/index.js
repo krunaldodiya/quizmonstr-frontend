@@ -3,14 +3,14 @@ import auth from "./auth";
 import drawer from "./drawer";
 import guest from "./guest";
 import network from "./network";
-import news from "./news";
+import quiz from "./quiz";
 
 const rootReducer = combineReducers({
   guest,
   auth,
   network,
   drawer,
-  news
+  quiz
 });
 
 export { rootReducer };

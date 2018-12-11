@@ -1,12 +1,12 @@
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import News from "../components/Tabs/News";
+import Quiz from "../components/Tabs/Quiz";
 import { toggleDrawer } from "../store/actions";
 
 const mapStateToProps = state => ({
   auth: state.auth,
   drawer: state.drawer,
-  news: state.news
+  quiz: state.quiz,
 });
 
 const mapDispatchToProps = dispatch => {
@@ -21,4 +21,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(News);
+)(Quiz);

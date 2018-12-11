@@ -11,8 +11,7 @@ const api = {
   createUserProfile: `${httpUrl}/api/users/profile/create`,
   requestOtp: `${httpUrl}/api/auth/request-otp`,
   verifyOtp: `${httpUrl}/api/auth/verify-otp`,
-  latestNews: `${httpUrl}/api/news/latest`,
-  allNews: `${httpUrl}/api/news/all`,
+  loadQuiz: `${httpUrl}/api/quiz/all`,
   wallet: `${httpUrl}/api/wallet/info`
 };
 

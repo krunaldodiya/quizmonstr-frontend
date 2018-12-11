@@ -18,7 +18,7 @@ const TopBar = props => {
       </View>
 
       <View style={{ flex: 7 }}>
-        <Text style={styles.name}>StockMastr</Text>
+        <Text style={styles.name}>QuizMonstr</Text>
       </View>
 
       <View style={{ flex: 1 }}>

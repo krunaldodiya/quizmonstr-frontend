@@ -1,7 +1,7 @@
-import { LOAD_NEWS, LOAD_NEWS_SUCCESS, LOAD_NEWS_FAIL } from "../actions";
+import { LOAD_QUIZ, LOAD_QUIZ_SUCCESS, LOAD_QUIZ_FAIL } from "../actions";
 
 const initialState = {
-  news: [],
+  data: [],
   errors: null,
   loading: false,
   loaded: false
@@ -9,7 +9,7 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case LOAD_NEWS: {
+    case LOAD_QUIZ: {
       return {
         ...state,
         loading: true,
@@ -17,20 +17,20 @@ export default (state = initialState, action) => {
       };
     }
 
-    case LOAD_NEWS_SUCCESS: {
+    case LOAD_QUIZ_SUCCESS: {
       return {
         ...state,
-        news: action.payload.news,
+        data: action.payload.quiz,
         errors: null,
         loading: false,
         loaded: true
       };
     }
 
-    case LOAD_NEWS_FAIL: {
+    case LOAD_QUIZ_FAIL: {
       return {
         ...state,
-        news: [],
+        data: [],
         errors: action.payload.errors,
         loading: false,
         loaded: true
