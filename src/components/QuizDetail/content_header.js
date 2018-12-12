@@ -3,9 +3,6 @@ import React from "react";
 import styles from "./styles";
 
 const ContentHeader = props => {
-  const { quiz } = props.navigation.state.params;
-console.log(props);
-
   return (
     <Header style={styles.termsWrapper} androidStatusBarColor="#d80402">
       <Left>
@@ -18,7 +15,7 @@ console.log(props);
       </Left>
 
       <Body>
-        <Text style={styles.termsHeader}>{quiz.category.name}</Text>
+        <Text style={styles.termsHeader}>Quiz Detail</Text>
       </Body>
     </Header>
   );

@@ -22,6 +22,6 @@ export default StyleSheet.create({
     fontSize: 18
   },
   termsBody: {
-    padding: 10
+    margin: 0
   },
 });
