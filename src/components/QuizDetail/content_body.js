@@ -1,18 +1,22 @@
 import {
+  Body,
   Content,
-  Text,
-  View,
+  Left,
   List,
   ListItem,
-  Left,
-  Body,
-  Thumbnail,
   Separator,
-  Button
+  Text,
+  Thumbnail,
+  View
 } from "native-base";
 import React from "react";
-import styles from "./styles";
+import { TouchableOpacity } from "react-native";
 import theme from "../../libs/theme";
+import styles from "./styles";
+
+getPrize = item => {
+  return item.entry_fee * item.total_participants * 0.8;
+};
 
 const ContentBody = props => {
   const { quiz } = props.navigation.state.params;
@@ -99,17 +103,36 @@ const ContentBody = props => {
                 color: "gray"
               }}
             >
-              Category
+              Prize
             </Text>
           </View>
+          
+          {getPrize(quiz) > 0 && (
+            <View style={{ marginRight: 20 }}>
+              <Text
+                style={{
+                  fontFamily: theme.fonts.TitilliumWebRegular,
+                  fontSize: 14,
+                  color: "green"
+                }}
+              >
+                See Distribution
+              </Text>
+            </View>
+          )}
         </View>
       </Separator>
 
       <ListItem>
         <Text
-          style={{ fontFamily: theme.fonts.TitilliumWebRegular, fontSize: 14 }}
+          style={{
+            fontFamily: theme.fonts.TitilliumWebRegular,
+            fontSize: 14,
+            letterSpacing: 1
+          }}
         >
-          {quiz.category.name}
+          {"\u20B9"}
+          {getPrize(quiz)}
         </Text>
       </ListItem>
 
@@ -218,9 +241,51 @@ const ContentBody = props => {
       </ListItem>
 
       <View style={{ alignSelf: "center", marginTop: 20 }}>
-        <Button small rounded>
-          <Text>JOIN QUIZ</Text>
-        </Button>
+        <TouchableOpacity
+          onPress={() => null}
+          style={{
+            flexDirection: "row",
+            paddingVertical: 8,
+            paddingHorizontal: 20,
+            borderRadius: 20,
+            backgroundColor: "indigo"
+          }}
+        >
+          <Text
+            style={{
+              padding: 0,
+              margin: 0,
+              fontFamily: theme.fonts.TitilliumWebSemiBold,
+              fontSize: 14,
+              color: "white"
+            }}
+          >
+            JOIN QUIZ
+          </Text>
+          <Text
+            style={{
+              marginHorizontal: 5,
+              fontFamily: theme.fonts.TitilliumWebSemiBold,
+              fontSize: 12,
+              color: "white"
+            }}
+          >
+            @
+          </Text>
+          <Text
+            style={{
+              padding: 0,
+              margin: 0,
+              fontFamily: theme.fonts.TitilliumWebSemiBold,
+              fontSize: 14,
+              color: "white",
+              letterSpacing: 1
+            }}
+          >
+            {"\u20B9"}
+            {quiz.entry_fee}
+          </Text>
+        </TouchableOpacity>
       </View>
     </Content>
   );
