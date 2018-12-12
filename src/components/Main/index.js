@@ -4,7 +4,7 @@ import { createAppContainer, createStackNavigator } from "react-navigation";
 import NoNetwork from "../../components/NoNetwork";
 import AddMoneyScreen from "../../containers/AddMoneyScreen";
 import GetStartedScreen from "../../containers/GetStartedScreen";
-import NewsDetailScreen from "../../containers/NewsDetailScreen";
+import QuizDetailScreen from "../../containers/QuizDetailScreen";
 import RequestOtpScreen from "../../containers/RequestOtpScreen";
 import TabsScreen from "../../containers/TabsScreen";
 import TutorialsScreen from "../../containers/TutorialsScreen";
@@ -21,7 +21,7 @@ const getAppNavigator = auth => {
       RequestOtpScreen: { screen: RequestOtpScreen },
       VerifyOtpScreen: { screen: VerifyOtpScreen },
       ManageProfileScreen: { screen: ManageProfileScreen },
-      NewsDetailScreen: { screen: NewsDetailScreen },
+      QuizDetailScreen: { screen: QuizDetailScreen },
       AddMoneyScreen: { screen: AddMoneyScreen },
       TutorialsScreen: { screen: TutorialsScreen }
     },
