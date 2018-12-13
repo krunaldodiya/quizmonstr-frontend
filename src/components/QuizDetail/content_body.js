@@ -19,7 +19,8 @@ getPrize = item => {
 };
 
 const ContentBody = props => {
-  const { quiz } = props.navigation.state.params;
+  const { navigation } = props;
+  const { quiz } = navigation.state.params;
 
   return (
     <Content style={styles.termsBody}>
@@ -106,7 +107,7 @@ const ContentBody = props => {
               Prize
             </Text>
           </View>
-          
+
           {getPrize(quiz) > 0 && (
             <View style={{ marginRight: 20 }}>
               <Text
@@ -149,7 +150,11 @@ const ContentBody = props => {
               Questions
             </Text>
           </View>
-          <View style={{ marginRight: 20 }}>
+
+          <TouchableOpacity
+            style={{ marginRight: 20 }}
+            onPress={() => navigation.push("QuestionsScreen", { quiz })}
+          >
             <Text
               style={{
                 fontFamily: theme.fonts.TitilliumWebRegular,
@@ -159,7 +164,7 @@ const ContentBody = props => {
             >
               List of Questions
             </Text>
-          </View>
+          </TouchableOpacity>
         </View>
       </Separator>
 
