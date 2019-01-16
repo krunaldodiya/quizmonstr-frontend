@@ -1,4 +1,4 @@
-const calculateDistance = (lat1, lon1, lat2, lon2, unit) => {
+const calculateDistance = (lat1, lon1, lat2, lon2, unit = "KM") => {
   if (lat1 == lat2 && lon1 == lon2) {
     return 0;
   } else {
@@ -15,17 +15,20 @@ const calculateDistance = (lat1, lon1, lat2, lon2, unit) => {
     dist = Math.acos(dist);
     dist = (dist * 180) / Math.PI;
 
-    if (unit == "SM") { // statute miles
+    if (unit == "SM") {
+      // statute miles
       dist = dist * 60 * 1.1515;
     }
-    if (unit == "KM") { // kilometers
+    if (unit == "KM") {
+      // kilometers
       dist = dist * 1.609344;
     }
     if (unit == "NM") {
       dist = dist * 0.8684; // nautical miles
     }
+
     return dist;
   }
-}
+};
 
 export { calculateDistance };
