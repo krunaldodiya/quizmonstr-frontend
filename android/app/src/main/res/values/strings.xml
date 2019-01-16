@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">QuizMonstr</string>
+    <string name="app_name">Clapoof</string>
+    <string name="download_on_cell_title">Clapoof</string>
+    <string name="download_on_cell_description">Clapoof</string>
 </resources>

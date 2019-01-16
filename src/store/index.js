@@ -1,26 +1,15 @@
-import { createStore, applyMiddleware } from "redux";
+import { init } from "@rematch/core";
+import createLoadingPlugin from "@rematch/loading";
 
-import { composeWithDevTools } from "redux-devtools-extension";
+// models
+import * as models from "./models";
 
-import createSagaMiddleware from "redux-saga";
+// plugins
+const loading = createLoadingPlugin({});
 
-const sagaMiddleware = createSagaMiddleware();
-
-const middlewares = [sagaMiddleware];
-
-const { rootReducer } = require("./reducers");
-
-const composeEnhancers = composeWithDevTools({
-  // Specify name here, actionsBlacklist, actionsCreators and other options if needed
+const store = init({
+  models,
+  plugins: [loading]
 });
 
-const store = createStore(
-  rootReducer,
-  composeEnhancers(applyMiddleware(...middlewares))
-);
-
-const { rootSaga } = require("./sagas");
-
-sagaMiddleware.run(rootSaga);
-
-export { store };
+export default store;

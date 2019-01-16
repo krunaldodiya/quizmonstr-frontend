@@ -1,23 +1,14 @@
 import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import Home from "../components/Tabs/Home";
-import { toggleDrawer, loadQuiz } from "../store/actions";
+import Home from "../components/Home";
 
 const mapStateToProps = state => ({
-  auth: state.auth,
-  drawer: state.drawer,
-  quiz: state.quiz
+  loading: state.loading,
+  auth: state.auth
 });
 
-const mapDispatchToProps = dispatch => {
-  return bindActionCreators(
-    {
-      toggleDrawer: toggleDrawer,
-      loadQuiz: loadQuiz
-    },
-    dispatch
-  );
-};
+const mapDispatchToProps = dispatch => ({
+  getAuthUser: dispatch.auth.getAuthUser
+});
 
 export default connect(
   mapStateToProps,
