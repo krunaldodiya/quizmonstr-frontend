@@ -1,4 +1,4 @@
-import { Text, View, Button } from "native-base";
+import { Button, Text, View } from "native-base";
 import React from "react";
 import { NativeModules } from "react-native";
 
@@ -18,13 +18,22 @@ class Home extends React.Component {
       MobileDeviceManager.isAppLocked().then(isAppLocked => {
         this.setState({ isAppLocked });
       });
-    }, 1000);
+    });
   }
 
   componentWillUnmount() {
     clearInterval(this.interval);
-    MobileDeviceManager.unlockApp();
   }
+
+  lockApp = () => {
+    MobileDeviceManager.lockApp();
+  };
+
+  unlockApp = () => {
+    MobileDeviceManager.unlockApp().then(() => {
+      clearInterval(this.interval);
+    });
+  };
 
   render() {
     const { isAppLocked } = this.state;
@@ -34,7 +43,7 @@ class Home extends React.Component {
         <View
           style={{
             padding: 10,
-            backgroundColor: "whitesmoke",
+            backgroundColor: isAppLocked ? "salmon" : "whitesmoke",
             flexDirection: "row",
             justifyContent: "space-between"
           }}
@@ -46,26 +55,14 @@ class Home extends React.Component {
 
           <View style={{ margin: 5 }}>
             {!isAppLocked && (
-              <Button small rounded bordered danger>
-                <Text
-                  onPress={() => {
-                    MobileDeviceManager.lockApp();
-                  }}
-                >
-                  Lock
-                </Text>
+              <Button small rounded bordered primary>
+                <Text onPress={() => this.lockApp()}>Lock</Text>
               </Button>
             )}
 
             {isAppLocked && (
-              <Button small rounded bordered success>
-                <Text
-                  onPress={() => {
-                    MobileDeviceManager.unlockApp();
-                  }}
-                >
-                  Unlock
-                </Text>
+              <Button small rounded bordered primary>
+                <Text onPress={() => this.unlockApp()}>Unlock</Text>
               </Button>
             )}
           </View>
